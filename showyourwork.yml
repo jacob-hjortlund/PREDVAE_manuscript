@@ -56,7 +56,6 @@ overleaf:
   pull:
     - src/tex/ms.tex
     - src/tex/bib.bib
-    - src/tex/oja.cls
 
 # Always require all input files to be present on disk for workflow to pass?
 require_inputs: true
