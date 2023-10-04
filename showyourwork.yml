@@ -56,6 +56,9 @@ overleaf:
   # List of files to pull from Overleaf
   pull:
     - src/tex/ms.tex
+    - src/sections/01-Introduction.tex
+    - src/sections/02-Data.tex
+    - src/sections/03-Methods.tex
 
 # Always require all input files to be present on disk for workflow to pass?
 require_inputs: true
