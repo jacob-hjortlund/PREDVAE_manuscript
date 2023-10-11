@@ -14,6 +14,13 @@
 \subsection{Semi-Supervised Variational Autoencoders}
 \label{subsec:ssvae}
 
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=\textwidth]{static/model_sketch.png}
+    \caption{Caption}
+    \label{fig:sketch}
+\end{figure}
+
 Variational autoencoders (VAEs, first introduced by \cite{kingmaAutoEncodingVariationalBayes2022} and \cite{rezendeStochasticBackpropagationApproximate2014}, belong to a family of unsupervised neural networks that are trained to copy its input to its output in a probabilistic manner. This probabilistic mapping leads to a generative model that can be used to produce new samples from the input distribution. While VAEs have received attention in the past for their generative capabilities \textcolor{red}{[CITATIONS]}, their current utility stems from their ability to map a high-dimensional input into a lower dimensional compressed representation, known as the \textit{latent space}. In this setting VAEs have shown to be extremely competitive, being able to produce disentangled representations of complex inputs \textcolor{red}{[INSERT REPRESENTATION LEARNING PAPERS FROM LOCAL ZOTERO]}. 
 
 Although VAEs have been applied to astrophysical use-cases before to disentangle data \textcolor{red}{[INSERT SOME OF THE ASTRO VAE PAPERS]}, they have seen little use in photo-z estimation. This is most likely due to the unsupervised nature of VAEs, which can only indirectly be applied to the case of photo-z estimation by using latent representations of photometric observations as training data for a supervised ML model. In such an approach there is no assurance that the latent representations are optimal for the secondary supervised learning task \citep{kingmaSemiSupervisedLearningDeep2014}. Extensive work has been done in extending VAEs to the semi-supervised setting, jointly learning disentangled representations \textit{and} classifications of data \textcolor{red}{[CITE KINGMA 14, MAALØE 16, OTHERS?]}.
