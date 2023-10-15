@@ -53,6 +53,9 @@ overleaf:
     - src/tex/figures
     - src/tex/output
     - src/tex/bib.bib
+    - src/tex/bibtex
+    - src/tex/aa.cls
+    - src/tex/linenoaa.sty
   # List of files to pull from Overleaf
   pull:
     - src/tex/ms.tex
