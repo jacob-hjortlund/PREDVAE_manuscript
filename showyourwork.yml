@@ -62,6 +62,8 @@ overleaf:
     - src/tex/sections/01-Introduction.tex
     - src/tex/sections/02-Data.tex
     - src/tex/sections/03-Methods.tex
+    - src/tex/sections/04-Results.tex
+    - src/tex/sections/05-Discussion.tex
     - src/tex/sections/0N-Appendix.tex
 
 # Always require all input files to be present on disk for workflow to pass?
