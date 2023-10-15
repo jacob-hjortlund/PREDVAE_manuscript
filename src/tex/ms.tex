@@ -1,44 +1,66 @@
 % Define document class
-\documentclass[twocolumn]{aastex631}
+%\documentclass[twocolumn]{aastex631}
+\documentclass[bibyear]{aa}
+\usepackage{natbib}
 \usepackage{showyourwork}
 \usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{xcolor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{txfonts}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=[rgb]{1.,0.2,0.2},citecolor=[rgb]{0.1,0.4,1.},filecolor=[rgb]{0.7,0.2,0.2},urlcolor=[rgb]{0.7,0.2,0.2}}
 % Begin!
 \begin{document}
 
 % Title
-\title{An open source scientific article}
+\title{\textsc{PhotoVAEz}: Photometric Redshifts Using Semi-Supervised Variational Autoencoders}
 
-% Author list
-\author{Jacob Osman Hjortlund}
-\affiliation{NBI}
+\author{
+J. O. Hjortlund \ref{UCPH}
+\and
+C. Gall \ref{UCPH}
+\and
+K. Stensbo-Smidt \ref{DTU}
+}
 
-\author{Christa Gall}
-\affiliation{NBI}
+\author{
+      J. O. Hjortlund\inst{1}\fnmsep\thanks{ORCID xxxx-xxxx-xxxx-xxxx}
+      \and C. Gall\inst{1}\thanks{ORCID 0000-0002-8526-3963}
+      \and K. Stensbo-Smidt\inst{2}\fnmsep\thanks{ORCID 0000-0002-8526-3963}
+      }
+\authorrunning{Ansari, Agnello, Gall}
 
-\author{Kristoffer Stensbo-Smidt}
-\affiliation{DTU}
+\institute{DARK, Niels Bohr Institute, University of Copenhagen,
+          Jagtvej 128, 2200 Copenhagen, Denmark\\
+          \and
+          DTU Compute
+}
+\abstract {Lorem ipsum dolor sit amet, consectetuer adipiscing elit.} {Lorem ipsum dolor sit amet, consectetuer adipiscing elit.} {Lorem ipsum dolor sit amet, consectetuer adipiscing elit.} {Lorem ipsum dolor sit amet, consectetuer adipiscing elit.} {Lorem ipsum dolor sit amet, consectetuer adipiscing elit.}
+% Abstract with filler text% \begin{abstract}
+%     Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+%     Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
+%     Curabitur dictum gravida mauris, consectetuer id, vulputate a, magna.
+%     Donec vehicula augue eu neque, morbi tristique senectus et netus et.
+%     Mauris ut leo, cras viverra metus rhoncus sem, nulla et lectus vestibulum.
+%     Phasellus eu tellus sit amet tortor gravida placerat.
+%     Integer sapien est, iaculis in, pretium quis, viverra ac, nunc.
+%     Praesent eget sem vel leo ultrices bibendum.
+%     Aenean faucibus, morbi dolor nulla, malesuada eu, pulvinar at, mollis ac.
+%     Curabitur auctor semper nulla donec varius orci eget risus.
+%     Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam.
+%     Duis eget orci sit amet orci dignissim rutrum.
+% \end{abstract}
 
-% Abstract with filler text
-\begin{abstract}
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-    Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
-    Curabitur dictum gravida mauris, consectetuer id, vulputate a, magna.
-    Donec vehicula augue eu neque, morbi tristique senectus et netus et.
-    Mauris ut leo, cras viverra metus rhoncus sem, nulla et lectus vestibulum.
-    Phasellus eu tellus sit amet tortor gravida placerat.
-    Integer sapien est, iaculis in, pretium quis, viverra ac, nunc.
-    Praesent eget sem vel leo ultrices bibendum.
-    Aenean faucibus, morbi dolor nulla, malesuada eu, pulvinar at, mollis ac.
-    Curabitur auctor semper nulla donec varius orci eget risus.
-    Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam.
-    Duis eget orci sit amet orci dignissim rutrum.
-\end{abstract}
+\maketitle
 
 \input{sections/01-Introduction}
 \input{sections/02-Data}
 \input{sections/03-Methods}
 \input{sections/0N-Appendix}
 
+\bibliographystyle{bibtex/aa}
 \bibliography{bib}
 
 \end{document}
