@@ -2,58 +2,21 @@
 \section{Introduction}
 \label{sec:intro}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
-Curabitur dictum gravida mauris, consectetuer id, vulputate a, magna.
-Donec vehicula augue eu neque, morbi tristique senectus et netus et.
-Mauris ut leo, cras viverra metus rhoncus sem, nulla et lectus vestibulum.
-Phasellus eu tellus sit amet tortor gravida placerat.
-Integer sapien est, iaculis in, pretium quis, viverra ac, nunc.
-Praesent eget sem vel leo ultrices bibendum.
-Aenean faucibus, morbi dolor nulla, malesuada eu, pulvinar at, mollis ac.
-Curabitur auctor semper nulla donec varius orci eget risus.
-Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam.
-Duis eget orci sit amet orci dignissim rutrum.
+\begin{enumerate}
+    \item Upcoming surveys like LSST will produce a ton of data
+    \item No time for spectra, gotta do photo-z's
+    \item Current methods: template-based and ML-based
+    \item Issues for both are degeneracies and amount of spec-z's available to fine-tune / train
+    \item Science goals have requirements not met by current methods (some have 2/3)
+    \item Semi-supervised ML methods can harness information from data without spec-z's
+    \item VAEs are unsupervised ML models used in representation learning which could be used to break degeneracies
+    \item Extended to the semi-supervised setting - use for photo-z's!
+    \item Present \textsc{PhotoVAEz}, a trained semi-supervised VAE for SDSS photo-z's as well as package for building new models
+    \item Paper breakdown
+\end{enumerate}
 
-Nam dui ligula, fringilla a, euismod sodales, sollici- tudin vel, wisi.
-Morbi auctor lorem non justo, nam lacus libero, pretium at, lobortis vitae.
-Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna.
-Morbi ac orci et nisl hendrerit mollis, suspendisse ut massa, cras nec ante.
-Pellentesque a nulla cum sociis natoque penatibus et magnis dis parturient.
-Aliquam tincidunt urna, nulla ullamcorper vestibulum turpis.
-Pellentesque cursus luctus mauris \cite{kingmaAutoEncodingVariationalBayes2022}.
+Variational autoencoders (VAEs), first introduced by \citet{kingmaAutoEncodingVariationalBayes2022} and \cite{rezendeStochasticBackpropagationApproximate2014}, belong to a family of unsupervised neural networks that are trained to copy its input to its output in a probabilistic manner. This probabilistic mapping leads to a generative model that can be used to produce new samples from the input distribution. 
+During this process VAEs learn useful representations of the data in a lower dimensional space referred to as the \textit{latent space}. VAEs have shown to be competitive with state-of-the-art generative models \citep{childVeryDeepVAEs2021, vahdatNVAEDeepHierarchical2021, maaloeBIVAVeryDeep2019}. VAEs have also seen large interest in the field representation learning, where the goal is to learn disentangled representations of complex data in an unsupervised manner.
+In this setting the latent space learnt by VAEs has shown to be extremely competitive, being able to produce disentangled representations of complex inputs in a hierarchical manner \cite{siddharthLearningDisentangledRepresentations2017}. 
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
-Curabitur dictum gravida mauris, consectetuer id, vulputate a, magna.
-Donec vehicula augue eu neque, morbi tristique senectus et netus et.
-Mauris ut leo, cras viverra metus rhoncus sem, nulla et lectus vestibulum.
-Phasellus eu tellus sit amet tortor gravida placerat.
-Integer sapien est, iaculis in, pretium quis, viverra ac, nunc.
-Praesent eget sem vel leo ultrices bibendum.
-Aenean faucibus, morbi dolor nulla, malesuada eu, pulvinar at, mollis ac.
-Curabitur auctor semper nulla donec varius orci eget risus.
-Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam.
-Duis eget orci sit amet orci dignissim rutrum.
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
-Curabitur dictum gravida mauris, consectetuer id, vulputate a, magna.
-Donec vehicula augue eu neque, morbi tristique senectus et netus et.
-Mauris ut leo, cras viverra metus rhoncus sem, nulla et lectus vestibulum.
-Phasellus eu tellus sit amet tortor gravida placerat.
-Integer sapien est, iaculis in, pretium quis, viverra ac, nunc.
-Praesent eget sem vel leo ultrices bibendum.
-Aenean faucibus, morbi dolor nulla, malesuada eu, pulvinar at, mollis ac.
-Curabitur auctor semper nulla donec varius orci eget risus.
-Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam.
-Duis eget orci sit amet orci dignissim rutrum.
-
-Nam dui ligula, fringilla a, euismod sodales, sollici- tudin vel, wisi.
-Morbi auctor lorem non justo, nam lacus libero, pretium at, lobortis vitae.
-Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna.
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Duis eget orci sit amet orci dignissim rutrum.
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Duis eget orci sit amet orci dignissim rutrum.
-
+Although VAEs have been applied to astrophysical use-cases before to disentangle data \textcolor{red}{[INSERT SOME OF THE ASTRO VAE PAPERS]}, they have seen little use in photo-$z$ estimation. This is most likely due to the unsupervised nature of VAEs, which can only indirectly be applied to the case of photo-$z$ estimation by using latent representations of photometric observations as training data for a supervised ML model. In such an approach there is no assurance that the latent representations are optimal for the secondary supervised learning task \cite{kingmaSemiSupervisedLearningDeep2014}. Extensive work has been done in extending VAEs to the semi-supervised setting, jointly learning disentangled representations \textit{and} classifications of data \citep{kingmaSemiSupervisedLearningDeep2014, maaloeAuxiliaryDeepGenerative2016, maaloeBIVAVeryDeep2019}. The majority of this work has focused on classification tasks, but the definition of such VAEs do not exclude continous regression tasks \citep{maaloeAuxiliaryDeepGenerative2016}.
